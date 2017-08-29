@@ -1,0 +1,54 @@
+#!/usr/bin/env node
+
+const { keys } = Object;
+
+const spawn = require('child_process').spawnSync;
+const path = require('path');
+
+const argv = require('minimist')(process.argv.slice(2));
+const commands = require(path.join(__dirname, 'lib', 'helpers', 'commands.js'));
+
+console.log(commands);
+
+console.log(argv);
+
+//create
+
+
+// git init
+// create git repo via command line
+// npm init
+// create package.json w/ sandl scripts that serve, build, test, lint, flow type checking?
+// generate application tree in developer mode (scripts, modules, styles, glsl, web assembly)
+// create template html
+// create service-worker.js template (in script?)
+// create manifest.json template
+// install mithril and include basic boilerplate
+
+//serve
+
+
+// use static-server to deliver static assets
+// websockets to refresh page whenever there is a filechange
+// auto-lint whenever there is a filechange
+// auto-jscs whenever there is a filechange
+// auto-test whenever there is a filechange
+// auto-build whenever there is a filechange
+// jsdoc or flow integration
+
+//build
+
+
+// concatenate for nomodule cases
+// have concatenated asset alongside primary asset
+
+//test
+
+
+// test runner via ava.js
+// maybe use ttab for testing on a separate server because it takes over stdio
+
+//help, halp -h, --help
+
+
+// print out the commands

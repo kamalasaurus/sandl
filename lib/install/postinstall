@@ -1,0 +1,10 @@
+#!/usr/bin/env node
+
+const fs = require('fs');
+const { spawnSync } = require('child_process');
+
+// check for operating system
+
+// check for and install git
+// check for and install static-server
+
