@@ -1,17 +1,36 @@
 #!/usr/bin/env node
 
 const { keys } = Object;
-
-const spawn = require('child_process').spawnSync;
 const path = require('path');
 
-//const argv = require('minimist')(process.argv.slice(2));
 const args = require(path.join(__dirname, 'lib', 'helpers', 'arguments.js'))(process.argv.slice(2));
 const commands = require(path.join(__dirname, 'lib', 'helpers', 'commands.js'));
 
-console.log(commands);
+const parseCommand = function (inputargs, inputcommands) {
+  const args = inputargs.keys();
+  const commands = [...inputcommands.keys()];
 
-console.log(args);
+  const cmd = args.next().value;
+  let valid;
+
+  commands.forEach((cmdList) => {
+    if (cmdList.includes(cmd)) {
+      valid = true;
+      inputcommands.get(cmdList).apply(null, [...args]);
+    }
+  });
+
+  if (!valid) {
+    // printer: command invalid
+    // fire help command
+  }
+
+  return;
+};
+
+parseCommand(args, commands);
+
+// return an appropriate exit code 1 or 0
 
 //create
 
