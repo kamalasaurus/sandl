@@ -3,12 +3,12 @@
 const { keys } = Object;
 const path = require('path');
 
-const args = require(path.join(__dirname, 'lib', 'helpers', 'arguments.js'))(process.argv.slice(2));
+const args = require(path.join(__dirname, 'lib', 'helpers', 'parseargs.js'))(process.argv.slice(2));
 const commands = require(path.join(__dirname, 'lib', 'helpers', 'commands.js'));
 
 const parseCommand = function (inputargs, inputcommands) {
   const args = inputargs.keys();
-  const commands = [...inputcommands.keys()];
+  const commands = [...inputcommands.keys()]; //use args instead?
 
   const cmd = args.next().value;
   let valid;
@@ -23,6 +23,9 @@ const parseCommand = function (inputargs, inputcommands) {
   if (!valid) {
     // printer: command invalid
     // fire help command
+    process.exitCode = 1;
+  } else {
+    process.exitCode = 0;
   }
 
   return;
@@ -30,45 +33,3 @@ const parseCommand = function (inputargs, inputcommands) {
 
 parseCommand(args, commands);
 
-// return an appropriate exit code 1 or 0
-
-//create
-
-
-// git init
-// create git repo via command line
-// npm init
-// create package.json w/ sandl scripts that serve, build, test, lint, flow type checking?
-// generate application tree in developer mode (scripts, modules, styles, glsl, web assembly)
-// create template html
-// create service-worker.js template (in script?)
-// create manifest.json template
-// install mithril and include basic boilerplate
-
-//serve
-
-
-// use static-server to deliver static assets
-// websockets to refresh page whenever there is a filechange
-// auto-lint whenever there is a filechange
-// auto-jscs whenever there is a filechange
-// auto-test whenever there is a filechange
-// auto-build whenever there is a filechange
-// jsdoc or flow integration
-
-//build
-
-
-// concatenate for nomodule cases
-// have concatenated asset alongside primary asset
-
-//test
-
-
-// test runner via ava.js
-// maybe use ttab for testing on a separate server because it takes over stdio
-
-//help, halp -h, --help
-
-
-// print out the commands
