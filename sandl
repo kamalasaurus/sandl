@@ -8,9 +8,10 @@ const commands = require(path.join(__dirname, 'lib', 'helpers', 'commands.js'));
 
 const parseCommand = function (inputargs, inputcommands) {
   const args = inputargs.keys();
-  const commands = [...inputcommands.keys()]; //use args instead?
-
   const cmd = args.next().value;
+
+  const commands = [...inputcommands.keys()];
+
   let valid;
 
   commands.forEach((cmdList) => {
