@@ -4,7 +4,7 @@ const { keys } = Object;
 const path = require('path');
 
 const argList = require(path.join(__dirname, 'lib', 'helpers', 'parseargs.js'))(process.argv.slice(2));
-const commandList = require(path.join(__dirname, 'lib', 'helpers', 'commands.js'));
+const commandList = require(path.join(__dirname, 'lib', 'helpers', 'commands.js'))();
 
 const parseCommand = function (inputargs, commands) {
   const args = inputargs.keys();
