@@ -3,27 +3,26 @@
 const { keys } = Object;
 const path = require('path');
 
-const args = require(path.join(__dirname, 'lib', 'helpers', 'parseargs.js'))(process.argv.slice(2));
-const commands = require(path.join(__dirname, 'lib', 'helpers', 'commands.js'));
+const argList = require(path.join(__dirname, 'lib', 'helpers', 'parseargs.js'))(process.argv.slice(2));
+const commandList = require(path.join(__dirname, 'lib', 'helpers', 'commands.js'));
 
-const parseCommand = function (inputargs, inputcommands) {
+const parseCommand = function (inputargs, commands) {
   const args = inputargs.keys();
   const cmd = args.next().value;
 
-  const commands = [...inputcommands.keys()];
+  const cmds = [...commands.keys()];
 
   let valid;
 
-  commands.forEach((cmdList) => {
+  cmds.forEach((cmdList) => {
     if (cmdList.includes(cmd)) {
       valid = true;
-      inputcommands.get(cmdList).apply(null, [...args]);
+      commands.get(cmdList).apply(null, [...args]);
     }
   });
 
   if (!valid) {
-    // printer: command invalid
-    // fire help command
+    commands.help();
     process.exitCode = 1;
   } else {
     process.exitCode = 0;
@@ -32,5 +31,5 @@ const parseCommand = function (inputargs, inputcommands) {
   return;
 };
 
-parseCommand(args, commands);
+parseCommand(argList, commandList);
 
