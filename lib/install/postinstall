@@ -7,4 +7,6 @@ const { spawnSync } = require('child_process');
 
 // check for and install git
 // check for and install static-server
+// globally install wargo and init a rust folder
+// query for git username
 
