@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-//require('dotenv').config();
+require('dotenv').config();
 
 const { keys } = Object;
 const path = require('path');
