@@ -1,0 +1,36 @@
+{
+  "name": "sandl",
+  "version": "1.0.0",
+  "description": "lightweight client-side bootstrapper",
+  "main": "server.js",
+  "scripts": {
+    "preinstall": "node check-version.js",
+    "add-modules": "node add-modules.js",
+    "lint": "jshint --reporter=node_modules/jshint-stylish . || true",
+    "watch:lint": "watch 'npm run lint' src",
+    "test": "",
+    "serve": "node server.js --live",
+    "start": "parallelshell \"npm run serve\" \"npm run watch:lint\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kamalasaurus/sandl.git"
+  },
+  "author": "Kamal R <kamalasaurus@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kamalasaurus/sandl/issues"
+  },
+  "homepage": "https://github.com/kamalasaurus/sandl#readme",
+  "devDependencies": {
+    "jshint": "^2.9.4",
+    "jshint-stylish": "^2.2.1",
+    "minimist": "^1.2.0",
+    "parallelshell": "^2.0.0",
+    "watch": "^1.0.1",
+    "ws": "^1.1.1"
+  },
+  "engines": {
+    "node": ">=7.4.0"
+  }
+}
