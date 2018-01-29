@@ -1,0 +1,7 @@
+{
+  "scripts": {
+    "start": "live-server",
+    "build": "\'convert css and build service-worker list\'",
+    "test": "\'come up with something\'"
+  }
+}
