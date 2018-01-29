@@ -11,6 +11,7 @@ TODO:
 5. concatenate server code
 6. finish pre and post scripts
 7. add command for glsl and web assembly
+8. add concatenation code for service worker to preload assets
 
 1. SWITCH FROM JSHINT TO ESLINT!!
 
