@@ -7,7 +7,7 @@
     "preinstall": "lib/install/preinstall",
     "postinstall": "lib/install/postinstall"
   },
-  "keywords": [],
+  "keywords": ["framework", "boilerplate", "progressive", "webassembly", "webgl"],
   "author": "kamalasaurus <kamalasaurus@gmail.com>",
   "license": "MIT",
   "dependencies": {
@@ -24,7 +24,7 @@
   "directories": {
     "lib": "lib"
   },
-  "devDependencies": {},
+  "files": ["lib", "logo", "templates"],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/kamalasaurus/sandl.git"
