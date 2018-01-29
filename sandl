@@ -2,7 +2,6 @@
 
 require('dotenv').config();
 
-const { keys } = Object;
 const path = require('path');
 
 const argList = require(path.join(__dirname, 'lib', 'helpers', 'parseargs.js'))(process.argv.slice(2));
