@@ -4,9 +4,9 @@ const RUNTIME = 'runtime';
 const PRECACHE_URLS = [
   'index.html',
   './', // Alias for index.html
-  'styles.css',
+  'css/style.css',
   'randomness.js',
-  'main.js',
+  'js/main.js',
   'examples.png'
 ];
 
