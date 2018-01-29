@@ -24,7 +24,7 @@
   "directories": {
     "lib": "lib"
   },
-  "files": ["lib", "logo", "templates"],
+  "files": ["lib", "logo", "skeleton", "addenda"],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/kamalasaurus/sandl.git"
