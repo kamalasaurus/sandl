@@ -7,11 +7,17 @@
     "preinstall": "lib/install/preinstall",
     "postinstall": "lib/install/postinstall"
   },
-  "keywords": ["framework", "boilerplate", "progressive", "webassembly", "webgl"],
+  "keywords": [
+    "framework",
+    "boilerplate",
+    "progressive",
+    "webassembly",
+    "webgl"
+  ],
   "author": "kamalasaurus <kamalasaurus@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "chalk": "^2.1.0",
+    "chalk": "^2.3.0",
     "dotenv": "^4.0.0",
     "glob": "^7.1.2",
     "minimist": "^1.2.0",
@@ -24,7 +30,12 @@
   "directories": {
     "lib": "lib"
   },
-  "files": ["lib", "logo", "skeleton", "addenda"],
+  "files": [
+    "lib",
+    "logo",
+    "skeleton",
+    "addenda"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/kamalasaurus/sandl.git"
