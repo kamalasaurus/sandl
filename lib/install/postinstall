@@ -9,7 +9,7 @@ const isInstalled = (cmd) => {
   return spawn({}, 'command', '-v', cmd).stdout.toString().length;
 }
 
-spawn('npm', 'install', '-g', 'live-server');
+//spawn('npm', 'install', '-g', 'live-server');
 
 //check if git is installed or not
 
@@ -26,4 +26,6 @@ shout('sandl has finished installing');
 say('please configure with \n sandl config username=<GITHUB_USERNAME> token=<GITHUB_PERSONAL_ACCESS_TOKEN>');
 say('for information on generating github access token, see https://developer.github.com/v3/guides/getting-started/#oauth');
 say('for webassembly modules, it is recommended to install and use the Rust ecosystem');
+
+process.exitCode = 0;
 
