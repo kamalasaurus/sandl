@@ -13,7 +13,7 @@ spawn('npm', 'install', '-g', 'live-server');
 
 //check if git is installed or not
 
-{
+const subroutines = {
   darwin() {
   },
   linux() {
