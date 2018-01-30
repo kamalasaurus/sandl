@@ -5,13 +5,12 @@ https://developer.github.com/v3/guides/getting-started/#oauth
 
 TODO:
 
-1. finish create code + git repo generation flow
-2. setup wizard upon attempt to create without config
-3. print out directions in help if .env does not exist
+1. finish create code + git repo generation flow + precache-url
+   generation + watch script w/ liveserver so it lints and updates the
+   precache urls
 5. concatenate server code
 6. finish pre and post scripts
 7. add command for glsl and web assembly
-8. add concatenation code for service worker to preload assets
 
 1. SWITCH FROM JSHINT TO ESLINT!!
 
