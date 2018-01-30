@@ -1,29 +1,29 @@
 #!/usr/bin/env node
 
-//const fs = require('fs');
-//const os = require('os');
-//const spawn = require(__dirname, '..', 'helpers', 'spawn');
-//const { say, shout } = require(__dirname, '..', 'helpers', 'printer');
+const os = require('os');
+const path = require('path');
+const spawn = require(path.join(__dirname, '..', 'helpers', 'spawn'));
+const { say, shout } = require(path.join(__dirname, '..', 'helpers', 'printer'));
 
-//const isInstalled = (cmd) => {
-//  return spawn({}, 'command', '-v', cmd).stdout.toString().length;
-//}
+const isInstalled = (cmd) => {
+  return spawn({}, 'command', '-v', cmd).stdout.toString().length;
+}
 
-//spawn('npm', 'install', '-g', 'live-server');
+spawn('npm', 'install', '-g', 'live-server');
 
-//check if git is installed or not
+check if git is installed or not
 
-//const subroutines = {
-//  darwin() {
-//  },
-//  linux() {
-//  },
-//  win32() {
-//  }
-//}[os.platform()]();
+const subroutines = {
+  darwin() {
+  },
+  linux() {
+  },
+  win32() {
+  }
+}[os.platform()]();
 
-//shout('sandl has finished installing');
-//say('please configure with \n sandl config username=<GITHUB_USERNAME> token=<GITHUB_PERSONAL_ACCESS_TOKEN>');
-//say('for information on generating github access token, see https://developer.github.com/v3/guides/getting-started/#oauth');
-//say('for webassembly modules, it is recommended to install and use the Rust ecosystem');
+shout('sandl has finished installing');
+say('please configure with \n sandl config username=<GITHUB_USERNAME> token=<GITHUB_PERSONAL_ACCESS_TOKEN>');
+say('for information on generating github access token, see https://developer.github.com/v3/guides/getting-started/#oauth');
+say('for webassembly modules, it is recommended to install and use the Rust ecosystem');
 
