@@ -22,7 +22,7 @@ const subroutines = {
 }[os.platform()]();
 
 shout('sandl has finished installing');
-say('please configure with \n sandl config username=<GITHUB_USERNAME> token=<GITHUB_PERSONAL_ACCESS_TOKEN>');
-say('for information on generating github access token, see https://developer.github.com/v3/guides/getting-started/#oauth');
+say('please configure with\n\nsandl config username=<GITHUB_USERNAME> token=<GITHUB_PERSONAL_ACCESS_TOKEN>');
+say('\nfor information on generating github access token, see https://developer.github.com/v3/guides/getting-started/#oauth');
 say('for webassembly modules, it is recommended to install and use the Rust ecosystem');
 
