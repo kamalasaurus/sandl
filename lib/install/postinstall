@@ -14,11 +14,11 @@ spawn('npm', 'install', '-g', 'live-server');
 //check if git is installed or not
 
 {
-  darwin: () => {
+  darwin() {
   },
-  linux: () => {
+  linux() {
   }
-  win32: () => {
+  win32() {
   }
 }[os.platform()]();
 
