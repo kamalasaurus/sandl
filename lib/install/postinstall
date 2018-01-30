@@ -17,7 +17,7 @@ const subroutines = {
   darwin() {
   },
   linux() {
-  }
+  },
   win32() {
   }
 }[os.platform()]();
