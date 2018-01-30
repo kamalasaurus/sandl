@@ -9,9 +9,8 @@ const isInstalled = (cmd) => {
   return spawn({}, 'command', '-v', cmd).stdout.toString().length;
 }
 
-spawn('npm', 'install', '-g', 'live-server');
-
-check if git is installed or not
+//spawn('npm', 'install', '-g', 'live-server');
+//check if git is installed or not
 
 const subroutines = {
   darwin() {
