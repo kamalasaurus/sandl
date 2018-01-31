@@ -11,6 +11,8 @@ const isInstalled = (cmd) => {
 
 const subroutines = {
   darwin() {
+    // this prevents pollution of the module space in the project
+    if (!isInstalled('live-server')) spawn('npm', '--prefix', projectdirectory, 'install', 'live-server', '-g');
   },
   linux() {
   },
