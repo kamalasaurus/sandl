@@ -1,4 +1,4 @@
-import App from './src/app/App.js';
+import App from './app/App.js';
 
 void function() {
 

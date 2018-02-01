@@ -1,4 +1,4 @@
-import PRECACHE_URLS from './src/precache-urls';
+import PRECACHE_URLS from './precache-urls';
 
 const PRECACHE = 'version1';
 const RUNTIME = 'runtime';
