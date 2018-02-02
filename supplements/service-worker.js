@@ -1,16 +1,5 @@
-//import PRECACHE_URLS from './precache-urls.js';
-
 const PRECACHE = 'version1';
 const RUNTIME = 'runtime';
-
-//const PRECACHE_URLS = [
-  //'index.html',
-  //'./', // Alias for index.html
-  //'css/style.css',
-  //'randomness.js',
-  //'js/main.js',
-  //'examples.png'
-//];
 
 // caches our resources
 // caches is now a global object!
