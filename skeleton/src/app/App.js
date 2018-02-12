@@ -1,12 +1,10 @@
 import m from '../../node_modules/mithril/mithril.js';
-
-// add mithril router, initialize canvas, initialize webassembly
+import Canvas from './graphics/Canvas.js';
 
 export default function App(root) {
-  const div = document.createElement('div');
-  div.innerHTML = 'Hello beachside world!';
-  document.body.appendChild(div);
-  const test = m('div', 'Hello beachside world!');
-  console.log(test);
+  // initialize weassembly either here or in a double fancy canvas module
+  m.route(root, '/', {
+    '/': new Canvas();
+  });
 };
 
