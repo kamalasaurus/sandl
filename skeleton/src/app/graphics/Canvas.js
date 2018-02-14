@@ -1,4 +1,7 @@
 import  m from '../../../node_modules/mithril/mithril.js'
+// create manifest for shaders to import as js
+// create manifest for wasm to import as js
+// create css -> json converters to import as js
 
 export default class Canvas {
   constructor(opts) {
@@ -8,13 +11,19 @@ export default class Canvas {
     // maybe have the fetch for the glsl here
     // instead of oninit?
 
+    console.log(getshaders);
+
     this.oninit = (vnode) => {
       //get shaders with fetch, assign to vnode?  Or promise link earlier in const.
     };
 
     this.view = (vnode) => {
       return this.canvas;
-    }
+    };
+  }
+
+  getshaders() {
+    //fetch()
   }
 }
 
