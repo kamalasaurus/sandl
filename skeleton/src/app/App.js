@@ -4,7 +4,7 @@ import Canvas from './graphics/Canvas.js';
 export default function App(root) {
   // initialize weassembly either here or in a double fancy canvas module
   m.route(root, '/', {
-    '/': new Canvas();
+    '/': new Canvas()
   });
 };
 

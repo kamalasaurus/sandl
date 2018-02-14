@@ -1,24 +1,20 @@
 import  m from '../../../node_modules/mithril/mithril.js'
 
 export default class Canvas {
-
-  constructor() {
+  constructor(opts) {
     // create css parser script to make it a loadable json for modular height/width
     // create script to generate module that has default css
-    this.canvas = m('canvas', {id: 'canvas', class: 'canvas'});
-    // assign canvas to vnode somehow
+    this.canvas = m('canvas', {id: 'canvas', oncreate: ()=> { console.log('canvas created!')}});
     // maybe have the fetch for the glsl here
     // instead of oninit?
-  }
 
-  oninit(vnode) {
-    //get shaders with fetch, assign to vnode
-  }
+    this.oninit = (vnode) => {
+      //get shaders with fetch, assign to vnode?  Or promise link earlier in const.
+    };
 
-  view(vnode) {
-    // return the vnode's canvas that's been modified; don't create a new one here
-    return m('canvas', {id: 'canvas', oncreate: ()=>{ console.log(this); }});
+    this.view = (vnode) => {
+      return this.canvas;
+    }
   }
-
 }
 
