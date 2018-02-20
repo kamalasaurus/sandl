@@ -1,4 +1,4 @@
-import  m from '../../../node_modules/mithril/mithril.js'
+import m from '../../../node_modules/mithril/mithril.js'
 // create manifest list to import glsl array
 // create manifest list to import wasm array
 // create css -> json converters to import as js
@@ -9,8 +9,6 @@ export default class Canvas {
     // create script to generate module that has default css
     this.canvas = m('canvas', {id: 'canvas', oncreate: ()=> { console.log('canvas created!')}});
     this.shaderlist = this.getshaders(/*imported shader list*/);
-
-    this.oninit = (vnode) => {};
 
     this.oncreate = (vnode) => {
       let gl = vnode.dom.getContext('webgl');
