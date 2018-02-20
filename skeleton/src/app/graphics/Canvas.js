@@ -8,10 +8,9 @@ export default class Canvas {
     // create css parser script to make it a loadable json for modular height/width
     // create script to generate module that has default css
     this.canvas = m('canvas', {id: 'canvas', oncreate: ()=> { console.log('canvas created!')}});
+    this.shaderlist = this.getshaders(/*imported shader list*/);
 
-    this.oninit = (vnode) => {
-      this.shaderlist = this.getshaders(/*imported shader list*/);
-    };
+    this.oninit = (vnode) => {};
 
     this.oncreate = (vnode) => {
       let gl = vnode.dom.getContext('webgl');
@@ -46,6 +45,9 @@ export default class Canvas {
   }
 
   getshaders(shaders) {
+    // {vert, frag}i
+    // return Promise.all(vert.map(fetch).then(res => res.text());
+    // return Promise.all(frag.map(fetch).then(res => res.text());
     return Promise.all([
       fetch('./vertex.glsl'),
       fetch('./fragment.glsl')
