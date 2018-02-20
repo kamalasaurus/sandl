@@ -55,8 +55,8 @@ export default class Canvas {
     ]);
   }
 
-  extractshaders(shaderarray) {
-    return Promise.all(arr.map(fetch).then(res => res.text()));
+  extractshaders(shaderurlarray) {
+    return Promise.all(shaderurlarray.map(fetch).then(res => res.text()));
   }
 }
 
