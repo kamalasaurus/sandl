@@ -21,11 +21,11 @@ export default class Canvas {
       ];
 
       this.shaderlist
-        .then(([v,f]) => {
-          Promise.all([
-            v.text(),
-            f.text()
-          ])
+      //.then(([v,f]) => {
+      //  Promise.all([
+      //    v.text(),
+      //    f.text()
+      //  ])
           .then((shaderSrcs) => {
             shaderSrcs.forEach((src, i) => {
               let s = shaders[i];
@@ -36,7 +36,7 @@ export default class Canvas {
             gl.linkProgram(program)
             initialize(gl, program)
           });
-        });
+      //});
     };
 
     this.view = (vnode) => {
