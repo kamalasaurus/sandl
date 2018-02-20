@@ -1,6 +1,6 @@
 import  m from '../../../node_modules/mithril/mithril.js'
-// create manifest for shaders to import as js
-// create manifest for wasm to import as js
+// create manifest list to import glsl array
+// create manifest list to import wasm array
 // create css -> json converters to import as js
 
 export default class Canvas {
@@ -8,13 +8,36 @@ export default class Canvas {
     // create css parser script to make it a loadable json for modular height/width
     // create script to generate module that has default css
     this.canvas = m('canvas', {id: 'canvas', oncreate: ()=> { console.log('canvas created!')}});
-    // maybe have the fetch for the glsl here
-    // instead of oninit?
-
-    console.log(getshaders);
 
     this.oninit = (vnode) => {
-      //get shaders with fetch, assign to vnode?  Or promise link earlier in const.
+      this.shaderlist = this.getshaders(/*imported shader list*/);
+    };
+
+    this.oncreate = (vnode) => {
+      let gl = vnode.dom.getContext('webgl');
+      let program = gl.createProgram();
+      let shaders = [
+        gl.createShader(gl.VERTEX_SHADER),
+        gl.createShader(gl.FRAGMENT_SHADER)
+      ];
+
+      this.shaderlist
+        .then(([v,f]) => {
+          Promise.all([
+            v.text(),
+            f.text()
+          ])
+          .then((shaderSrcs) => {
+            shaderSrcs.forEach((src, i) => {
+              let s = shaders[i];
+              gl.shaderSource(s, src);
+              gl.compileShader(s);
+              gl.attachShader(program, s);
+            });
+            gl.linkProgram(program)
+            initialize(gl, program)
+          });
+        });
     };
 
     this.view = (vnode) => {
@@ -22,8 +45,11 @@ export default class Canvas {
     };
   }
 
-  getshaders() {
-    //fetch()
+  getshaders(shaders) {
+    return Promise.all([
+      fetch('./vertex.glsl'),
+      fetch('./fragment.glsl')
+    ]);
   }
 }
 
