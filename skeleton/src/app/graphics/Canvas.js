@@ -44,14 +44,19 @@ export default class Canvas {
     };
   }
 
-  getshaders(shaders) {
-    // {vert, frag}i
-    // return Promise.all(vert.map(fetch).then(res => res.text());
-    // return Promise.all(frag.map(fetch).then(res => res.text());
+  getshaders({vert, frag}) {
+    // return {
+    //   vert: this.extractshaders(vert),
+    //   frag: this.extractshaders(frag)
+    // }
     return Promise.all([
       fetch('./vertex.glsl'),
       fetch('./fragment.glsl')
     ]);
+  }
+
+  extractshaders(shaderarray) {
+    return Promise.all(arr.map(fetch).then(res => res.text()));
   }
 }
 
