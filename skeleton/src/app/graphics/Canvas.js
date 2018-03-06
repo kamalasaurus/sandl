@@ -7,7 +7,7 @@ export default class Canvas {
   constructor(opts) {
     // create css parser script to make it a loadable json for modular height/width
     // create script to generate module that has default css
-    this.canvas = m('canvas', {id: 'canvas', oncreate: ()=> { console.log('canvas created!')}});
+    this.canvas = m('canvas', {id: 'canvas'});
     this.shaderlist = this.getshaders(/*imported shader list*/);
 
     this.oncreate = (vnode) => {
@@ -54,7 +54,12 @@ export default class Canvas {
   }
 
   extractshaders(shaderurlarray) {
-    return Promise.all(shaderurlarray.map(fetch).then(res => res.text()));
+    return Promise
+      .all(
+        shaderurlarray
+          .map(fetch)
+          .then(res => res.text())
+      );
   }
 }
 
