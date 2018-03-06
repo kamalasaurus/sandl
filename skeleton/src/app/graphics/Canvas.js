@@ -8,7 +8,7 @@ export default class Canvas {
     // create css parser script to make it a loadable json for modular height/width
     // create script to generate module that has default css
     this.canvas = m('canvas', {id: 'canvas'});
-    this.shaderlist = this.getshaders(/*imported shader list*/);
+    this.shaderlist = this.getshaders(shaderlist);
 
     this.oncreate = (vnode) => {
       let gl = vnode.dom.getContext('webgl');
@@ -19,22 +19,19 @@ export default class Canvas {
       ];
 
       this.shaderlist
-      //.then(([v,f]) => {
-      //  Promise.all([
-      //    v.text(),
-      //    f.text()
-      //  ])
-          .then((shaderSrcs) => {
-            shaderSrcs.forEach((src, i) => {
-              let s = shaders[i];
-              gl.shaderSource(s, src);
-              gl.compileShader(s);
-              gl.attachShader(program, s);
-            });
-            gl.linkProgram(program)
-            initialize(gl, program)
+        .then((shaderSrcs) => {
+          console.log()
+          shaderSrcs.forEach((src, i) => {
+            // create the appropriate shader here
+            // depending on file extension
+            let s = shaders[i];
+            gl.shaderSource(s, src);
+            gl.compileShader(s);
+            gl.attachShader(program, s);
           });
-      //});
+          gl.linkProgram(program)
+          initialize(gl, program)
+        });
     };
 
     this.view = (vnode) => {
@@ -43,14 +40,10 @@ export default class Canvas {
   }
 
   getshaders({vert, frag}) {
-    // return {
-    //   vert: this.extractshaders(vert),
-    //   frag: this.extractshaders(frag)
-    // }
-    return Promise.all([
-      fetch('./vertex.glsl'),
-      fetch('./fragment.glsl')
-    ]);
+     return Promise.resolve({
+       vert: this.extractshaders(vert),
+       frag: this.extractshaders(frag)
+     });
   }
 
   extractshaders(shaderurlarray) {
