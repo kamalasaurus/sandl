@@ -32,6 +32,7 @@ export default class Canvas {
 
           gl.linkProgram(program);
           this.initialize(gl, program);
+        };
     };
 
     this.view = (vnode) => {
@@ -40,6 +41,9 @@ export default class Canvas {
   }
 
   initialize(gl, program) {
+    //TODO:!!
+    //after this, only the wasm loading :)
+    //then publish as npm module :)
     //build out the program here!!
   }
 
