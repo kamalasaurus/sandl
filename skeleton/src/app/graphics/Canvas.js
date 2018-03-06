@@ -31,12 +31,16 @@ export default class Canvas {
           });
 
           gl.linkProgram(program);
-          initialize(gl, program);
+          this.initialize(gl, program);
     };
 
     this.view = (vnode) => {
       return this.canvas;
     };
+  }
+
+  initialize(gl, program) {
+    //build out the program here!!
   }
 
   getshaders({vert, frag}) {
