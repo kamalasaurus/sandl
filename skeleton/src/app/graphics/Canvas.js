@@ -13,25 +13,25 @@ export default class Canvas {
     this.oncreate = (vnode) => {
       let gl = vnode.dom.getContext('webgl');
       let program = gl.createProgram();
-      let shaders = [
-        gl.createShader(gl.VERTEX_SHADER),
-        gl.createShader(gl.FRAGMENT_SHADER)
-      ];
+
+      let shaderTypes = {
+        vert: 'VERTEX_SHADER',
+        frag: 'FRAGMENT_SHADER'
+      };
 
       this.shaderlist
         .then((shaderSrcs) => {
-          console.log()
-          shaderSrcs.forEach((src, i) => {
-            // create the appropriate shader here
-            // depending on file extension
-            let s = shaders[i];
-            gl.shaderSource(s, src);
-            gl.compileShader(s);
-            gl.attachShader(program, s);
+          Object.keys(shaderSrcs).forEach((type) => {
+            shaderSrcs[type].forEach((src) => {
+              let shader = gl.createShader(gl[shaderTypes[type]]);
+              gl.shaderSource(shader, src);
+              gl.compileShader(shader);
+              gl.attachShader(program, shader);
+            });
           });
-          gl.linkProgram(program)
-          initialize(gl, program)
-        });
+
+          gl.linkProgram(program);
+          initialize(gl, program);
     };
 
     this.view = (vnode) => {
