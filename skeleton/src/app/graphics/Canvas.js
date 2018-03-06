@@ -1,5 +1,5 @@
-import m from '../../../node_modules/mithril/mithril.js'
-// create manifest list to import glsl array
+import m from '../../../node_modules/mithril/mithril.js';
+import shaderlist from '../../../shader-list.js';
 // create manifest list to import wasm array
 // create css -> json converters to import as js
 
