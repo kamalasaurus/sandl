@@ -1,5 +1,6 @@
 import m from '../../../node_modules/mithril/mithril.js';
 import shaderlist from '../../../shader-list.js';
+import wasmlist from '../../../wasm-list.js';
 // create manifest list to import wasm array
 // create css -> json converters to import as js
 
@@ -120,6 +121,17 @@ export default class Canvas {
 
     this.update(gl, params);
   }
+
+  // create generic extractRequest function
+  // TODO: convert to camelCase for all entities
+  getwasm(wasmurlarray) {
+    return Promise
+    .all(
+      wasmurlarray
+        .map(fetch)
+        .then(res => res.text());
+    )
+  };
 
   getshaders({vert, frag}) {
      return Promise.resolve({
