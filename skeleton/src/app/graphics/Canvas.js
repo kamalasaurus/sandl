@@ -34,7 +34,7 @@ export default class Canvas {
           gl.linkProgram(program);
           // classname or super.initialize?
           this.initialize(gl, program);
-        };
+        });
     };
 
     this.view = (vnode) => {
@@ -73,11 +73,11 @@ export default class Canvas {
     let loc = gl.getAttribLocatoin(program, 'a_position');
 
     let params = {
-      transloc: gl.getUniformLocation(program, 'u_translation');
-      uni: gl.getUniformLocation(program, 'u_resolution');
-      col: gl.getUniformLocation(program, 'u_color');
-      scale: gl.getUniformLocation(program, 'u_scale');
-      colPos: gl.getUniformLocation(program, 'u_color_position');
+      transloc: gl.getUniformLocation(program, 'u_translation'),
+      uni: gl.getUniformLocation(program, 'u_resolution'),
+      col: gl.getUniformLocation(program, 'u_color'),
+      scale: gl.getUniformLocation(program, 'u_scale'),
+      colPos: gl.getUniformLocation(program, 'u_color_position'),
     };
 
     gl.viewport(0, 0, gl.canvas.width, gl.canvas.height);
@@ -126,11 +126,11 @@ export default class Canvas {
   // TODO: convert to camelCase for all entities
   getwasm(wasmurlarray) {
     return Promise
-    .all(
-      wasmurlarray
-        .map(fetch)
-        .then(res => res.text());
-    )
+      .all(
+        wasmurlarray
+          .map(fetch)
+          .then(res => res.text())
+      );
   };
 
   getshaders({vert, frag}) {
@@ -149,4 +149,3 @@ export default class Canvas {
       );
   }
 }
-
